@@ -1,57 +1,60 @@
 {
-  "sourceLanguage": "fr",
-  "strings": {
-    "liveBlocked": {
-      "extractionState": "manual",
-      "localizations": {
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld bloqués"
+  "sourceLanguage" : "fr",
+  "strings" : {
+    "%lld" : {
+
+    },
+    "liveBlocked" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld blocked"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld blocked"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld bloqués"
           }
         }
       }
     },
-    "liveFinished": {
-      "extractionState": "manual",
-      "localizations": {
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Terminé"
+    "liveFinished" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Done"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terminé"
           }
         }
       }
     },
-    "liveWorking": {
-      "extractionState": "manual",
-      "localizations": {
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Blocage en cours"
+    "liveWorking" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blocking"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Blocking"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blocage en cours"
           }
         }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }

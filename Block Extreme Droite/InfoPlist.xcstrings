@@ -1,10 +1,33 @@
 {
   "sourceLanguage" : "fr",
   "strings" : {
-    "NSLocationWhenInUseUsageDescription" : {
+    "CFBundleName" : {
+      "comment" : "Bundle name",
+      "extractionState" : "extracted_with_value",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Location only keeps the app running in the background during blocking. Your position is not read or sent." } },
-        "fr" : { "stringUnit" : { "state" : "translated", "value" : "La localisation sert uniquement à garder l'appli active en arrière-plan pendant le blocage. Votre position n'est ni lue ni envoyée." } }
+        "fr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Block Extreme Droite"
+          }
+        }
+      }
+    },
+    "NSLocationWhenInUseUsageDescription" : {
+      "comment" : "Privacy - Location When In Use Usage Description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Location only keeps the app running in the background during blocking. Your position is not read or sent."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La localisation sert uniquement à garder l'appli active en arrière-plan pendant le blocage. Votre position n'est ni lue ni envoyée."
+          }
+        }
       }
     }
   },

@@ -55,8 +55,23 @@ private struct ProgressSummary: View {
                 Text(.liveWorking).foregroundStyle(.secondary)
             }
             if let cap = state.cap {
-                ProgressView(value: Double(min(state.blocked, cap)), total: Double(cap))
+                ProgressBar(fraction: Double(min(state.blocked, cap)) / Double(cap))
             }
         }
+    }
+}
+
+/// Drawn by hand because the system bar's empty track is nearly black on the activity's dark card.
+private struct ProgressBar: View {
+    let fraction: Double
+
+    var body: some View {
+        GeometryReader { proxy in
+            ZStack(alignment: .leading) {
+                Capsule().fill(.primary.opacity(0.25))
+                Capsule().fill(.primary).frame(width: proxy.size.width * fraction)
+            }
+        }
+        .frame(height: 8)
     }
 }
