@@ -1,0 +1,12 @@
+{
+  "sourceLanguage" : "fr",
+  "strings" : {
+    "NSLocationWhenInUseUsageDescription" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Location only keeps the app running in the background during blocking. Your position is not read or sent." } },
+        "fr" : { "stringUnit" : { "state" : "translated", "value" : "La localisation sert uniquement à garder l'appli active en arrière-plan pendant le blocage. Votre position n'est ni lue ni envoyée." } }
+      }
+    }
+  },
+  "version" : "1.0"
+}

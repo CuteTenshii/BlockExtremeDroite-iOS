@@ -1082,6 +1082,74 @@
           }
         }
       }
+    },
+    "settingsKeepAlive": {
+      "extractionState": "manual",
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Garder actif en arrière-plan"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keep running in the background"
+          }
+        }
+      }
+    },
+    "settingsKeepAliveFooter": {
+      "extractionState": "manual",
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iOS suspend l'appli dès que vous la quittez. Cette option utilise la localisation pour que le blocage continue en arrière-plan : votre position n'est ni lue ni envoyée. Elle consomme de la batterie et iOS affiche l'indicateur de localisation pendant le blocage."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iOS suspends the app as soon as you leave it. This option uses location so blocking keeps going in the background: your position is not read or sent. It uses battery, and iOS shows the location indicator while blocking."
+          }
+        }
+      }
+    },
+    "settingsKeepAliveDenied": {
+      "extractionState": "manual",
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La localisation est refusée. Autorisez-la pour Block Extreme Droite dans les réglages d'iOS."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Location is denied. Allow it for Block Extreme Droite in iOS Settings."
+          }
+        }
+      }
+    },
+    "settingsOpenSettings": {
+      "extractionState": "manual",
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir les réglages d'iOS"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open iOS Settings"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

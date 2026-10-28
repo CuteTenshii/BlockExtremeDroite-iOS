@@ -23,6 +23,7 @@ final class BlockRunner: NSObject, WKHTTPCookieStoreObserver, WKNavigationDelega
 
     let webView: WKWebView
     private let progress = ProgressStore()
+    let keeper = BackgroundKeeper()
     private var task: Task<Void, Never>?
     private var requested: URL?
 
@@ -85,13 +86,14 @@ final class BlockRunner: NSObject, WKHTTPCookieStoreObserver, WKNavigationDelega
     }
 
     /// Accounts already blocked, unavailable or without a profile on the platform are skipped.
-    func start(platform: Platform, accounts: [Account], pacing: Pacing) {
+    func start(platform: Platform, accounts: [Account], pacing: Pacing, keepAlive: Bool) {
         guard !isRunning, platform.webSpec != nil else { return }
         let queue = accounts.filter { account in
             account.profile(on: platform).map { !progress.status($0).isDone } ?? false
         }
         guard !queue.isEmpty else { return }
         isRunning = true
+        if keepAlive { keeper.start() }
         blocked = 0
         current = nil
         lastStop = nil
@@ -99,6 +101,7 @@ final class BlockRunner: NSObject, WKHTTPCookieStoreObserver, WKNavigationDelega
         task = Task { [self] in
             let reason = await run(platform, queue, pacing)
             isRunning = false
+            keeper.stop()
             current = nil
             lastStop = reason
             lastBlocked = blocked

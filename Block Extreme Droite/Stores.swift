@@ -46,6 +46,7 @@ final class SettingsStore {
     /// Stored as exclusions so categories added to the list later start out selected.
     var connectionsExpanded: Bool { didSet { defaults.set(connectionsExpanded, forKey: "connectionsExpanded") } }
     var listExpanded: Bool { didSet { defaults.set(listExpanded, forKey: "listExpanded") } }
+    var keepAlive: Bool { didSet { defaults.set(keepAlive, forKey: "keepAlive") } }
     var showBrowser: Bool { didSet { defaults.set(showBrowser, forKey: "showBrowser") } }
     /// Stored as exclusions so categories added to the list later start out selected.
     var excludedCategories: Set<String> { didSet { defaults.set(Array(excludedCategories), forKey: "excludedCategories") } }
@@ -61,6 +62,7 @@ final class SettingsStore {
         unlimited = defaults.bool(forKey: "unlimited")
         connectionsExpanded = defaults.object(forKey: "connectionsExpanded") as? Bool ?? true
         listExpanded = defaults.object(forKey: "listExpanded") as? Bool ?? true
+        keepAlive = defaults.bool(forKey: "keepAlive")
         showBrowser = defaults.bool(forKey: "showBrowser")
         excludedCategories = Set(defaults.stringArray(forKey: "excludedCategories") ?? [])
         excludedSources = Set((defaults.stringArray(forKey: "excludedSources") ?? []).compactMap(AccountSource.init(rawValue:)))

@@ -109,7 +109,7 @@ struct BlockView: View {
                 Button(.runStop, role: .destructive) { model.runner.stop() }
             } else {
                 Button(.runStart, systemImage: "hand.raised.fill") {
-                    model.runner.start(platform: model.settings.platform, accounts: model.selected, pacing: model.settings.pacing)
+                    model.runner.start(platform: model.settings.platform, accounts: model.selected, pacing: model.settings.pacing, keepAlive: model.settings.keepAlive)
                 }
                 .disabled(model.remaining == 0 || !model.runner.loggedIn.contains(model.settings.platform))
                 if let reason = model.runner.lastStop { Text(message(reason)).foregroundStyle(.secondary) }

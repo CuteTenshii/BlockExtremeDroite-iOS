@@ -2,11 +2,13 @@ import SwiftUI
 
 struct SettingsView: View {
     @Bindable var model: AppModel
+    @Environment(\.openURL) private var openURL
 
     var body: some View {
         NavigationStack {
             List {
                 pacingSection
+                keepAliveSection
                 Section {
                     Toggle(.settingsShowBrowser, isOn: $model.settings.showBrowser)
                 } header: {
@@ -17,6 +19,31 @@ struct SettingsView: View {
             }
             .navigationTitle(.tabSettings)
         }
+    }
+
+    private var keepAliveSection: some View {
+        Section {
+            Toggle(.settingsKeepAlive, isOn: $model.settings.keepAlive)
+                .disabled(model.runner.keeper.isDenied)
+                .onChange(of: model.settings.keepAlive) { _, isOn in
+                    if isOn { model.runner.keeper.requestAuthorization() }
+                }
+                .onChange(of: model.runner.keeper.isDenied, initial: true) { _, isDenied in
+                    if isDenied { model.settings.keepAlive = false }
+                }
+            if model.runner.keeper.isDenied {
+                Button(.settingsOpenSettings) {
+                    if let url = URL(string: UIApplication.openSettingsURLString) { openURL(url) }
+                }
+            }
+        } footer: {
+            if model.runner.keeper.isDenied {
+                Text(.settingsKeepAliveDenied)
+            } else {
+                Text(.settingsKeepAliveFooter)
+            }
+        }
+        .disabled(model.runner.isRunning)
     }
 
     private var pacingSection: some View {
