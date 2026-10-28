@@ -24,6 +24,7 @@ final class BlockRunner: NSObject, WKHTTPCookieStoreObserver, WKNavigationDelega
     let webView: WKWebView
     private let progress = ProgressStore()
     let keeper = BackgroundKeeper()
+    private let liveActivity = LiveActivityController()
     private var task: Task<Void, Never>?
     private var requested: URL?
 
@@ -93,7 +94,10 @@ final class BlockRunner: NSObject, WKHTTPCookieStoreObserver, WKNavigationDelega
         }
         guard !queue.isEmpty else { return }
         isRunning = true
-        if keepAlive { keeper.start() }
+        if keepAlive {
+            keeper.start()
+            liveActivity.start(platform: platform, cap: pacing.sessionCap)
+        }
         blocked = 0
         current = nil
         lastStop = nil
@@ -102,6 +106,7 @@ final class BlockRunner: NSObject, WKHTTPCookieStoreObserver, WKNavigationDelega
             let reason = await run(platform, queue, pacing)
             isRunning = false
             keeper.stop()
+            liveActivity.end(blocked: blocked)
             current = nil
             lastStop = reason
             lastBlocked = blocked
@@ -117,6 +122,7 @@ final class BlockRunner: NSObject, WKHTTPCookieStoreObserver, WKNavigationDelega
             if let cap = pacing.sessionCap, blocked >= cap { return .capReached }
             guard let profile = account.profile(on: platform), let url = URL(string: profile.url) else { continue }
             current = account.label(on: platform)
+            liveActivity.update(current: current, blocked: blocked)
             requested = url
             webView.load(URLRequest(url: url))
 
@@ -128,7 +134,10 @@ final class BlockRunner: NSObject, WKHTTPCookieStoreObserver, WKNavigationDelega
             }
             progress.set(profile, status)
             if status == .blocked || status == .alreadyBlocked { await BlockCounter.shared.report(account, on: platform) }
-            if status == .blocked { blocked += 1 }
+            if status == .blocked {
+                blocked += 1
+                liveActivity.update(current: current, blocked: blocked)
+            }
             failures = status == .failed ? failures + 1 : 0
             if failures >= Self.maxConsecutiveFailures { return .tooManyFailures }
             if let cap = pacing.sessionCap, blocked >= cap { return .capReached }

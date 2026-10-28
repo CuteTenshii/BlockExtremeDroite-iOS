@@ -19,7 +19,10 @@ struct ContentView: View {
             }
         }
         .sheet(item: $model.loginPlatform) { LoginSheet(platform: $0) }
-        .task { await model.reload(refresh: false) }
+        .task {
+            await LiveActivityController.endStale()
+            await model.reload(refresh: false)
+        }
     }
 
     /// The runner's web view, always in the window so the run keeps going across tabs. It keeps one fixed size and

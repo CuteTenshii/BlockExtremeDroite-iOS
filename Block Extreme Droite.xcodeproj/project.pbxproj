@@ -6,8 +6,44 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5CDF1E1CE1884EF3511D9743 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1234C41589A82AD4EA0494F1 /* Localizable.xcstrings */; };
+		6817A3837DCC05200E4C7F71 /* LiveActivityExt.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FBC5B6744E680572E78E2599 /* LiveActivityExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8DB44097307A35FA00C8945D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5E34D1510EF6594D384E1E6 /* Foundation.framework */; };
+		A440414E1CEDDB56508A3777 /* BlockLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDBE293608E6EC295A1F443 /* BlockLiveActivity.swift */; };
+		BFDF425A6EB2FE08B1CAEDF3 /* BlockAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860E04811F885D32A958939 /* BlockAttributes.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DEE5B11C96F45632122FAC5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAC9FE2B30926AFB002C68AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADBDB90FB0D22F70A1DAE56D;
+			remoteInfo = LiveActivityExt;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4ADF6DB92A934F6787999C1C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				6817A3837DCC05200E4C7F71 /* LiveActivityExt.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		07E2A3A366C401874F824A76 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1234C41589A82AD4EA0494F1 /* Localizable.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		ACDBE293608E6EC295A1F443 /* BlockLiveActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BlockLiveActivity.swift; sourceTree = "<group>"; };
+		B5E34D1510EF6594D384E1E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D860E04811F885D32A958939 /* BlockAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlockAttributes.swift; path = "Block Extreme Droite/BlockAttributes.swift"; sourceTree = "<group>"; };
 		FAC9FE3330926AFB002C68AD /* Block Extreme Droite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Block Extreme Droite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBC5B6744E680572E78E2599 /* LiveActivityExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LiveActivityExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -19,6 +55,12 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0E052749E680F1A0154DD3D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+				8DB44097307A35FA00C8945D /* Foundation.framework in Frameworks */,
+			);
+		};
 		FAC9FE3030926AFB002C68AD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
@@ -27,11 +69,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41DD5A2D1565EEF4D23D6D2B /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				B5E34D1510EF6594D384E1E6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		90474D65B1589EBFE1366544 /* LiveActivityExt */ = {
+			isa = PBXGroup;
+			children = (
+				ACDBE293608E6EC295A1F443 /* BlockLiveActivity.swift */,
+				07E2A3A366C401874F824A76 /* Info.plist */,
+				1234C41589A82AD4EA0494F1 /* Localizable.xcstrings */,
+			);
+			path = LiveActivityExt;
+			sourceTree = "<group>";
+		};
+		AA54040DA8D2CD85A0A59474 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41DD5A2D1565EEF4D23D6D2B /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FAC9FE2A30926AFB002C68AD = {
 			isa = PBXGroup;
 			children = (
 				FAC9FE3530926AFB002C68AD /* Block Extreme Droite */,
 				FAC9FE3430926AFB002C68AD /* Products */,
+				AA54040DA8D2CD85A0A59474 /* Frameworks */,
+				90474D65B1589EBFE1366544 /* LiveActivityExt */,
+				D860E04811F885D32A958939 /* BlockAttributes.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -39,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				FAC9FE3330926AFB002C68AD /* Block Extreme Droite.app */,
+				FBC5B6744E680572E78E2599 /* LiveActivityExt.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -46,6 +118,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		ADBDB90FB0D22F70A1DAE56D /* LiveActivityExt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE44457E57645D741B41312F /* Build configuration list for PBXNativeTarget "LiveActivityExt" */;
+			buildPhases = (
+				50C6E0A6ECC9A2C3C73D3AF0 /* Sources */,
+				0E052749E680F1A0154DD3D9 /* Frameworks */,
+				B11AADF5FCA22C1EA8E95C4E /* Resources */,
+			);
+			buildRules = (
+			);
+			name = LiveActivityExt;
+			productName = LiveActivityExt;
+			productReference = FBC5B6744E680572E78E2599 /* LiveActivityExt.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		FAC9FE3230926AFB002C68AD /* Block Extreme Droite */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAC9FE3E30926AFC002C68AD /* Build configuration list for PBXNativeTarget "Block Extreme Droite" */;
@@ -53,8 +140,12 @@
 				FAC9FE2F30926AFB002C68AD /* Sources */,
 				FAC9FE3030926AFB002C68AD /* Frameworks */,
 				FAC9FE3130926AFB002C68AD /* Resources */,
+				4ADF6DB92A934F6787999C1C /* Embed Foundation Extensions */,
 			);
 			buildRules = (
+			);
+			dependencies = (
+				D0A07A00F9BF3CDA04EAE1A3 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				FAC9FE3530926AFB002C68AD /* Block Extreme Droite */,
@@ -95,11 +186,18 @@
 			projectRoot = "";
 			targets = (
 				FAC9FE3230926AFB002C68AD /* Block Extreme Droite */,
+				ADBDB90FB0D22F70A1DAE56D /* LiveActivityExt */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B11AADF5FCA22C1EA8E95C4E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				5CDF1E1CE1884EF3511D9743 /* Localizable.xcstrings in Resources */,
+			);
+		};
 		FAC9FE3130926AFB002C68AD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
@@ -108,6 +206,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		50C6E0A6ECC9A2C3C73D3AF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				A440414E1CEDDB56508A3777 /* BlockLiveActivity.swift in Sources */,
+				BFDF425A6EB2FE08B1CAEDF3 /* BlockAttributes.swift in Sources */,
+			);
+		};
 		FAC9FE2F30926AFB002C68AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
@@ -115,7 +220,73 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		D0A07A00F9BF3CDA04EAE1A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LiveActivityExt;
+			target = ADBDB90FB0D22F70A1DAE56D /* LiveActivityExt */;
+			targetProxy = DEE5B11C96F45632122FAC5D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		61D2727716CDC26758FECD81 /* Release configuration for PBXNativeTarget "LiveActivityExt" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZAY869L4U9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LiveActivityExt/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Block Extreme Droite";
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "moe.tenshii.Block-Extreme-Droite.LiveActivityExt";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BBD524F54A9113E932AFF4F0 /* Debug configuration for PBXNativeTarget "LiveActivityExt" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZAY869L4U9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LiveActivityExt/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Block Extreme Droite";
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "moe.tenshii.Block-Extreme-Droite.LiveActivityExt";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		FAC9FE3C30926AFC002C68AD /* Debug configuration for PBXProject "Block Extreme Droite" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -249,6 +420,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Extra-Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Keeps the app running during a run.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -283,6 +455,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Extra-Info.plist";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Keeps the app running during a run.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -321,6 +494,14 @@
 			buildConfigurations = (
 				FAC9FE3F30926AFC002C68AD /* Debug configuration for PBXNativeTarget "Block Extreme Droite" */,
 				FAC9FE4030926AFC002C68AD /* Release configuration for PBXNativeTarget "Block Extreme Droite" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		FE44457E57645D741B41312F /* Build configuration list for PBXNativeTarget "LiveActivityExt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61D2727716CDC26758FECD81 /* Release configuration for PBXNativeTarget "LiveActivityExt" */,
+				BBD524F54A9113E932AFF4F0 /* Debug configuration for PBXNativeTarget "LiveActivityExt" */,
 			);
 			defaultConfigurationName = Release;
 		};
