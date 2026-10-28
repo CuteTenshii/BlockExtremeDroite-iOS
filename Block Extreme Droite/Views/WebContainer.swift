@@ -21,13 +21,18 @@ extension WKWebViewConfiguration {
     })();
     """#
 
-    /// The configuration for every web view of the app: the default data store, so sessions are shared, and the sites' own back arrows hidden.
-    static func site() -> WKWebViewConfiguration {
+    /// The configuration for every web view of the app: the default data store, so sessions are shared, and a
+    /// Safari user agent, since X redirects other web views to an app-only address. `hidesBackButtons` hides the sites' own back arrows.
+    static func site(hidesBackButtons: Bool = true) -> WKWebViewConfiguration {
         let configuration = WKWebViewConfiguration()
         configuration.websiteDataStore = .default()
-        configuration.userContentController.addUserScript(
-            WKUserScript(source: hideBackButtons, injectionTime: .atDocumentStart, forMainFrameOnly: true)
-        )
+        let os = ProcessInfo.processInfo.operatingSystemVersion
+        configuration.applicationNameForUserAgent = "Version/\(os.majorVersion).\(os.minorVersion) Mobile/15E148 Safari/604.1"
+        if hidesBackButtons {
+            configuration.userContentController.addUserScript(
+                WKUserScript(source: hideBackButtons, injectionTime: .atDocumentStart, forMainFrameOnly: true)
+            )
+        }
         return configuration
     }
 }

@@ -35,7 +35,7 @@ final class BlockRunner: NSObject, WKHTTPCookieStoreObserver, WKNavigationDelega
     private static let maxConsecutiveFailures = 3
 
     override init() {
-        let configuration = WKWebViewConfiguration()
+        let configuration = WKWebViewConfiguration.site(hidesBackButtons: false)
         let script = WKUserScript(source: Self.script, injectionTime: .atDocumentStart, forMainFrameOnly: true)
         configuration.userContentController.addUserScript(script)
         webView = WKWebView(frame: .zero, configuration: configuration)
